@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Homepage | Include {% endblock %}
+
+{% block body %}
+
+	<div class="wrapper">
+		
+		{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+		
+		<h2>Welcome, {{ app.user.username }}</h2> <a href="{{ path('zasticeno') }}">Your Dashboard</a>
+			<a class="link" href="{{ path('logout') }}">Logout</a>
+
+		{% else %}	
+		<h2>Vaša reklama na pametnoj klupi</h2>
+		
+		<div class="button">
+			<a href="{{ path('login') }}">Logiraj se</a>
+		</div>
+		
+		<div class="button">
+			<a href="{{ path('user_register') }}">Registriraj se</a>
+		</div>
+		
+	{% endif %}
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Registration | Include {% endblock %}
+
+{% block body %}
+	
+	<h1>Register</h1>
+	
+	<form action="{{ path('user_register') }}" method="POST" novalidate="novalidate">
+		{{ form_errors(form) }}	
+		
+		{{ form_row(form.username) }}
+		{{ form_row(form.email) }}
+		{{ form_row(form.password.first, { 'label': 'Password' }) }}
+		{{ form_row(form.password.second, { 'label': 'Repeat password' }) }}
+		
+		{{ form_rest(form) }}
+		
+		<input type="submit" value="register" />
+	</form>
+	
+{% endblock %}
